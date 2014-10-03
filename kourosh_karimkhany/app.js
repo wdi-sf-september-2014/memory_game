@@ -1,3 +1,21 @@
-//create an array for animals
+//create a function to shuffle, feed it an array of animals
 
-var animals = ["dog", "dog", "cat", "cat"];
+function shuffle(array) {
+  var m = array.length, t, i;
+
+  // While there remain elements to shuffle…
+  while (m) {
+
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * m--);
+
+    // And swap it with the current element.
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+
+  return array;
+}
+
+var oldArr = ["dog", "cat"];
