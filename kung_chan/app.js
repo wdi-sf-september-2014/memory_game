@@ -1,56 +1,23 @@
+//1 Even I passed divs_array into the function, the array cannnot be changed within the function, 
+// I can only return it and assign to the global vairable again.
+
 document.addEventListener('DOMContentLoaded', function(){
 
-var TotalUniqueCardNumber = 5;
-var UniqueCardImagesTags = []
+	var total_number_of_cards = 8;
+	var divs_array = [];
 
-for (var i = 1; i <= TotalUniqueCardNumber; i++) {
-	var $div = insertDiv(i);
-	addClass($div, 'float');
-	UniqueCardImagesTags.push(insertImgFromMTGDB(i));
-}
+	push_divs_to_divs_array										(total_number_of_cards, divs_array);
 
-for (var i = 1; i <= TotalUniqueCardNumber; i++) {
-	var $div = insertDiv(i + TotalUniqueCardNumber)
-	addClass($div, 'float')
-	$div.appendChild(UniqueCardImagesTags[i - 1].cloneNode())
-}
+	insert_image_tag_to_divs_in_divs_array						(total_number_of_cards, divs_array);
 
-var $divs = [].slice.call(document.querySelectorAll('.container div'))
+	divs_array = clone_the_divs_array_and_add_clone_class		(total_number_of_cards, divs_array); //1
 
-var $shuffledDivs = shuffle($divs);
+	add_style_to_divs_array										(total_number_of_cards, divs_array);
 
-document.querySelector('.container').innerHTML = ''
-for (var i = 0; i < $shuffledDivs.length; i++) {
-	document.querySelector('.container').appendChild($shuffledDivs[i])
-}
+	add_click_listener_to_divs_in_divs_array					(divs_array);
 
-var clicked;
+	fisher_yates_shuffle_the_divs_array							(divs_array);
 
-for (var i = 0; i < $divs.length; i++) {
-	addListener($divs[i])
-}
-
-function addListener($div) {
-	$div.addEventListener('click',function(){
-		if (clicked) {
-			var thisId = this.getAttribute('id').slice(4)
-			var clickedId = clicked.getAttribute('id').slice(4)
-			
-			if ( Math.abs(thisId - clickedId) === TotalUniqueCardNumber) {
-				console.log('matched')
-				clicked.removeEventListener('click')
-				addClass(this, 'selected')
-			} else {
-				addListener($div)
-			}
-
-			clicked = null;
-		} else {
-			clicked = this;
-			this.removeEventListener('click')
-			addClass(this, 'selected')
-		}
-	})
-}
+	add_divs_to_container										(divs_array);
 
 })

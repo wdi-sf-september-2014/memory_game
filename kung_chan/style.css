@@ -1,13 +1,23 @@
 .container {
-	width: 400px;
+	width: 500px;
 	height: 600px;
 	margin: 0 auto;
 }
 
-.float {
+.card_holder {
+	position: absolute;
 	float: left;
+	margin: 10px;
 }
 
 .selected {
+	background-color: red;
+}
+
+.matched {
+	background-color: green;
+}
+
+.clicked {
 	background-color: red;
 }
