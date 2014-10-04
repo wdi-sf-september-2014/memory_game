@@ -19,13 +19,21 @@ function shuffle(array) {
 }
 
 // create an animal array, double the array to fill out the cards
-var animals = ["dog", "cat", "rat", "parrot", "lion", "tiger"];
+var animals = ["Dog", "Cat", "Rat", "Parrot", "Lion", "Tiger"];
 var cards = [];
-for (i = 0; i < animals.length + 1; i++) {   	// double the animals
-	for (j = -1; j < 1; j++) {
+for (var i = 0; i < animals.length + 1; i++) {   	// double the animals
+	for (var j = -1; j < 1; j++) {
 		cards.push(animals[i + j]);
 	}
 }
 
 cards.pop();
 cards.shift();
+shuffle(cards);
+console.log(cards);
+
+// assign animals to cards
+for (var i = 1; i < 13; i++) {
+	var boxString = "box" + i;
+	document.getElementById(boxString).innerHTML = cards[i - 1];
+}
