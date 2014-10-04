@@ -20,18 +20,18 @@ table {
 
 td.show {
 	border-radius: 10%;
-	font-size: 48px;
+	font-size: 42px;
 	text-align: center;
 	width: 200px;
-	height: 281px;	
-	background: #DAAB99;
+	height: 285px;	
+	background: #E3E3E6;
 }
 
 td.hide {
 	border-radius: 10%;
-	background: url(back_large.png) center no-repeat;
+	background: #e3e3e6 url(back_large.png) center no-repeat;
 	width: 200px;
-	height: 281px;
+	height: 285px;
 	font-size: 0;
 }
 

@@ -30,10 +30,17 @@ for (var i = 0; i < animals.length + 1; i++) {   	// double the animals
 cards.pop();
 cards.shift();
 shuffle(cards);
-console.log(cards);
 
 // assign animals to cards
 for (var i = 1; i < 13; i++) {
 	var boxString = "box" + i;
 	document.getElementById(boxString).innerHTML = cards[i - 1];
+}
+
+// detect card click, change style
+var cardClick = document.getElementsByClassName("hide");
+for (var i = 0; i < cardClick.length; i++) {
+	cardClick[i].addEventListener("click", function() {
+		this.setAttribute("class", "show");
+	});
 }
