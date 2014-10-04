@@ -19,19 +19,17 @@ table {
 
 
 td.show {
-	border-radius: 10%;
+	background: url(blank.jpg) center no-repeat;
 	font-size: 42px;
 	text-align: center;
 	width: 200px;
-	height: 285px;	
-	background: #E3E3E6;
+	height: 281px;	
 }
 
 td.hide {
-	border-radius: 10%;
-	background: #e3e3e6 url(back_large.png) center no-repeat;
+	background: url(back_large.png) center no-repeat;
 	width: 200px;
-	height: 285px;
+	height: 281px;
 	font-size: 0;
 }
 
