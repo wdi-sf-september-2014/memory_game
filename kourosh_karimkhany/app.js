@@ -1,4 +1,4 @@
-//create a function to shuffle, feed it an array of animals
+// create a function to shuffle, feed it an array of animals
 
 function shuffle(array) {
   var m = array.length, t, i;
@@ -18,4 +18,14 @@ function shuffle(array) {
   return array;
 }
 
-var oldArr = ["dog", "cat"];
+// create an animal array, double the array to fill out the cards
+var animals = ["dog", "cat", "rat", "parrot", "lion", "tiger"];
+var cards = [];
+for (i = 0; i < animals.length + 1; i++) {   	// double the animals
+	for (j = -1; j < 1; j++) {
+		cards.push(animals[i + j]);
+	}
+}
+
+cards.pop();
+cards.shift();
