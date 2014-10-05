@@ -1,5 +1,4 @@
 // create a function to shuffle, feed it an array of animals
-
 function shuffle(array) {
   var m = array.length, t, i;
 
@@ -18,6 +17,8 @@ function shuffle(array) {
   return array;
 }
 
+
+
 // create an animal array, double the array to fill out the cards
 var animals = ["Dog", "Cat", "Rat", "Parrot", "Lion", "Tiger"];
 var cards = [];
@@ -31,16 +32,19 @@ cards.pop();
 cards.shift();
 shuffle(cards);
 
+
+
 // assign animals to cards
 for (var i = 1; i < 13; i++) {
 	var boxString = "box" + i;
 	document.getElementById(boxString).innerHTML = cards[i - 1];
 }
 
+
 // detect card click, change style
-var cardClick = document.getElementsByClassName("hide");
-for (var i = 0; i < cardClick.length; i++) {
-	cardClick[i].addEventListener("click", function() {
+var cardsClicked = document.getElementsByClassName("hide");
+for (var i = 0; i < cardsClicked.length; i++) {
+	cardsClicked[i].addEventListener("click", function() {
 		this.setAttribute("class", "show");
 	});
 }
