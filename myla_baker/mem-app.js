@@ -44,7 +44,7 @@ var clickHandler = function() {
             td1 = this;
             count++;
             console.log("count is 1. itemOne is "+itemOne+", element1 is "+element1+", td1 is "+td1.id);
-        } else if (count === 2) {
+        } else if ((count === 2) && (td1.id !== this.id)) {
             itemTwo = divShowing.innerHTML;
             element2 = divShowing;
             td2 = this;
