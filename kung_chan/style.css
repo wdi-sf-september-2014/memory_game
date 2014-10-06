@@ -7,16 +7,29 @@
 .card_holder {
 	float: left;
 	margin: 10px;
+	position: relative;
 }
 
-.selected {
-	background-color: red;
+.card_holder div img {
+	margin-top: 4px;
+	border-radius: 8px;
 }
+
+.cover {
+	position: absolute;
+	top: 0px;
+}
+
+.remove_cover{
+	z-index: -1;
+}	
 
 .matched {
-	background-color: green;
+	z-index: -1;
 }
 
 .clicked {
-	background-color: red;
+	z-index: -1;
 }
+
+
