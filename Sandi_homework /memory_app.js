@@ -56,6 +56,7 @@ for (var i=0; i<squares.length; i++) {
 					if (firstClick.innerHTML===secondClick.innerHTML) {
 						alert("It's a match");
 
+
 					}else {
 						alert("It's NOT a match");
 						firstClick.setAttribute("class", "hide"); 
@@ -67,8 +68,11 @@ for (var i=0; i<squares.length; i++) {
 	});
 }
 
+//in english: I want a function that upon a click -- to a box that is already "hidden", then the function of comparing first click to second click occurs.   this means that I want the "meat of the function to run IF the td is on "class = hide".  Otherwise, it shouldn't run.
 
+//In this same function, if the first === second click, then it will alert of a match.  If not, then I want it to go back in hiding.
 
+//this function will repeat each time after two clicks, so it will need to "reset"  (counter =1 to start and counter =1 at the end) 
 
 
 
