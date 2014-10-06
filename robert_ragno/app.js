@@ -1,4 +1,11 @@
-var words = ["Dog", "Dog", "Cat", "Cat", "Bird", "Bird", "Snake", "Snake", "Fox", "Fox", "Butterfly", "Butterfly", "Fish", "Fish", "Dinosaur", "Dinosaur"];
+//stored array of values for the game
+var shortWords = ["Dog", "Cat", "Bird", "Snake", "Fox", "Butterfly", "Fish", "Dinosaur"];
+
+//set up a new array to double words from standard array
+var words = [];
+for (var i = 0; i < shortWords.length; i++) {
+	words.push(shortWords[i], shortWords[i]);
+}
 
 //Shuffle the array of words
 function shuffle(array) {
@@ -35,17 +42,22 @@ var clicked = false;
 
 for (var i = 0; i < cells.length; i++) {
     cells[i].addEventListener("click", function() {
+    	//Check that cell is "off" and that it hasn't been clicked yet
     	if (this.querySelector("div").getAttribute("class") === "off" && !clicked) {
 	    	this.querySelector("div").setAttribute("class", "on");
+	    	//Use counter to see what click we are on. This is click one
 	    	if (counter === 1) {
 	    		click1 = this.querySelector("div");
 	    		counter++;
 	    	} 
+	    	//This is click 2
 	    	else {
 	  			click2 = this.querySelector("div");
 	  			clicked = true;
 	  			counter = 1;
+	  			//if click1 and click 2 match then change color and reset clicked to false
 	  			if (click1.innerHTML === click2.innerHTML) {
+	  				//Change Color to signify a correct match
 	  				click1.parentNode.setAttribute("style", "background-color:green;");
 	  				click2.parentNode.setAttribute("style", "background-color:green;");
 	  				console.log("You rock!");
