@@ -127,26 +127,50 @@ function add_click_listener_to_divs_in_divs_holder_array(divs_holder_array) {
 	}	
 }
 
+// function holder_click_handler(){
+// 	if (clicked_card_holder === undefined) {
+// 		// first click
+// 		clicked_card_holder = this;
+// 		clicked_card_holder.removeEventListener('click', holder_click_handler);
+// 		clicked_card_holder.children[1].classList.add('clicked');
+// 	} else {
+// 		// second click
+// 		if (this.childNodes[0].classList[0] === clicked_card_holder.childNodes[0].classList[0]) {
+// 			// matched
+// 			console.log('matched')
+// 			this.removeEventListener('click', holder_click_handler);
+// 			clicked_card_holder.children[1].classList.remove('clicked');
+// 			clicked_card_holder.children[1].classList.add('matched');
+// 			this.children[1].classList.add('matched');
+// 		} else {
+// 			// not matched
+// 			console.log('not matched')
+// 			clicked_card_holder.addEventListener('click', holder_click_handler)
+// 			clicked_card_holder.children[1].classList.remove('clicked')
+// 		}
+// 		clicked_card_holder = undefined;
+// 	}
+// }
+
 function holder_click_handler(){
 	if (clicked_card_holder === undefined) {
 		// first click
 		clicked_card_holder = this;
 		clicked_card_holder.removeEventListener('click', holder_click_handler);
-		clicked_card_holder.children[1].classList.add('clicked')
+		clicked_card_holder.classList.add('rotate');
 	} else {
 		// second click
 		if (this.childNodes[0].classList[0] === clicked_card_holder.childNodes[0].classList[0]) {
 			// matched
 			console.log('matched')
 			this.removeEventListener('click', holder_click_handler);
-			clicked_card_holder.children[1].classList.remove('clicked');
 			clicked_card_holder.children[1].classList.add('matched');
-			this.children[1].classList.add('matched');
+			this.classList.add('rotate');
 		} else {
 			// not matched
 			console.log('not matched')
 			clicked_card_holder.addEventListener('click', holder_click_handler)
-			clicked_card_holder.children[1].classList.remove('clicked')
+			clicked_card_holder.classList.remove('rotate');
 		}
 		clicked_card_holder = undefined;
 	}

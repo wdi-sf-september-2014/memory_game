@@ -2,12 +2,15 @@
 	width: 500px;
 	height: 600px;
 	margin: 0 auto;
+	-webkit-perspective: 800px;
 }
 
 .card_holder {
 	float: left;
 	margin: 10px;
 	position: relative;
+	transition: -webkit-transform .2s ease-in;
+	-webkit-transform-style: preserve-3d;
 }
 
 .card_holder div img {
@@ -15,9 +18,13 @@
 	border-radius: 8px;
 }
 
+.card_holder div {
+}
+
 .cover {
 	position: absolute;
 	top: 0px;
+	-webkit-backface-visibility: hidden;
 }
 
 .remove_cover{
@@ -30,6 +37,10 @@
 
 .clicked {
 	z-index: -1;
+}
+
+.rotate {
+	-webkit-transform: rotateY(-180deg);
 }
 
 
