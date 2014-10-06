@@ -23,6 +23,7 @@ var count = 1;
 var itemOne, itemTwo;
 var element1, element2;
 var timeoutID;
+var stillInSecondClick = false;
 
 for(var i =0 ; i < elements.length ; i++) {
 
@@ -31,7 +32,7 @@ for(var i =0 ; i < elements.length ; i++) {
 		// var element1, element2;
 		var divShowing = this.querySelector("div");
 
-		if(divShowing.className === "unmatched"){
+		if(divShowing.className === "unmatched" && !stillInSecondClick){
 
 			divShowing.setAttribute("class", "matched");
 			console.log(divShowing.class);
@@ -41,19 +42,24 @@ for(var i =0 ; i < elements.length ; i++) {
 				element1 = divShowing;
 				count++;
 			} else {					// second click
+				
+				//console.log("stillInSecondClick = " + stillInSecondClick);
 				itemTwo = divShowing.innerHTML;
 				element2 = divShowing;
-				count = 1;
+				
 
 				if(itemOne === itemTwo) {
 				} else {
+					stillInSecondClick = true;
 					setTimeout(function(){
 					element1.setAttribute("class", "unmatched");
 					element2.setAttribute("class", "unmatched");
-					},500);
+					stillInSecondClick = false;
+					},5000);
 				}
+				count = 1;
 			}
-			
+
 		}
 
 	});
