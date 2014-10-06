@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {
+	background-color:#7B7F7D;
+	text-align: center;
+	font-family: sans-serif;
+}
+table {
+	margin: 0 auto;
+	text-align: center;
+	border-spacing:10px;
+	border-collapse: no-collapse;
+}
+
+table td{
+	border: 3px solid black;
+	border-color:black;
+	background-color:#9AFFA1;
+	height:100px;
+	width:100px;
+	border-radius: 60px;
+}
+td div {
+	height:70px;
+	width:100px;
+	line-height: 70px;	
+	font-size: 18px;
+}
+.cell:hover {
+	background-color:white;
+}
+.container {
+	margin: 0 auto;
+}
+
+.off{
+	display:none;
+}
+
+.on{
+	display:inherit;
+}
