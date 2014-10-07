@@ -1,0 +1,35 @@
+body {
+	font-family: 'PT Serif', serif;
+}
+
+#header {
+	text-align: center;
+	font-size: 48px;
+	margin-bottom: 0px;
+	font-weight: bold;
+}
+
+
+table {
+	margin: 0 auto;
+	width: 1000px;
+	border-spacing: 10px;
+	table-layout: fixed;
+}
+
+
+td.show {
+	background: url(blank.jpg) center no-repeat;
+	font-size: 42px;
+	text-align: center;
+	width: 200px;
+	height: 281px;
+}
+
+td.hide {
+	background: url(back_large.png) center no-repeat;
+	width: 200px;
+	height: 281px;
+	font-size: 0;
+}
+
