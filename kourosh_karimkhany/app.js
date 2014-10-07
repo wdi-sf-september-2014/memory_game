@@ -22,17 +22,12 @@ function shuffle(array) {
 // create an animal array, double the array to fill out the cards
 var animals = ["Dog", "Cat", "Rat", "Parrot", "Lion", "Tiger"];
 var cards = [];
-for (var i = 0; i < animals.length + 1; i++) {   	// double the animals
-	for (var j = -1; j < 1; j++) {
-		cards.push(animals[i + j]);
-	}
+for (var i = 0; i < animals.length; i++) {   	// double the animals
+	cards.push(animals[i], animals[i]);
 }
 
-cards.pop();
-cards.shift();
+// shuffle the cards
 shuffle(cards);
-
-
 
 // assign animals to cards
 for (var i = 1; i < 13; i++) {
@@ -42,9 +37,35 @@ for (var i = 1; i < 13; i++) {
 
 
 // detect card click, change style
-var cardsClicked = document.getElementsByClassName("hide");
-for (var i = 0; i < cardsClicked.length; i++) {
-	cardsClicked[i].addEventListener("click", function() {
-		this.setAttribute("class", "show");
-	});
+var counter = 0;
+var card1, card2, element1, element2;
+var cardClicked = document.querySelectorAll("td");
+
+for (var i = 0; i < cardClicked.length; i++) {
+  cardClicked[i].addEventListener("click", function() {
+
+    if (counter === 0 && this.getAttribute("class") === "hide") {
+      this.setAttribute("class", "show");
+      card1 = this.innerHTML;
+      element1 = this.getAttribute("id");
+      counter++;
+      console.log(card1, element1, counter);
+    } 
+
+    else if (counter === 1 && this.getAttribute("class") === "hide") {
+      this.setAttribute("class", "show");
+      card2 = this.innerHTML;
+      element2 = this.getAttribute("id");
+      counter++;
+      console.log(card2, element2, counter);
+    } else if (counter === 2 && card1 === card2) {
+      document.getElementById(element1).setAttribute("class", "show");
+      document.getElementById(element2).setAttribute("class", "show");
+      counter = 0;
+    } else { 
+      counter = 0;
+      document.getElementById(element1).setAttribute("class", "hide");
+      document.getElementById(element2).setAttribute("class", "hide");
+    }
+  });
 }
