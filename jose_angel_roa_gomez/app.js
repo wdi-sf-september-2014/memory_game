@@ -4,14 +4,40 @@ var animals = ["Elephant", "Monkey", "Lion",
 			   "Elephant", "Monkey", "Lion",
 			   "Bird", "Dog", "Cat" ];
 
+// shuffle the array
+
+function shuffle(array) {
+  var copy = [], n = array.length, i;
+
+  // While there remain elements to shuffle…
+  while (n) {
+
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * array.length);
+
+    // If not already shuffled, move it to the new array.
+    if (i in array) {
+      copy.push(array[i]);
+      delete array[i];
+      n--;
+    }
+  }
+
+  return copy;
+}
+
+
+var shuffleAnimals = shuffle(animals);
+
+
 // populate the table
 var cells = document.querySelectorAll("table div");
 
-for(var i =0 ; i < animals.length ; i++) {
+for(var i =0 ; i < shuffleAnimals.length ; i++) {
 
 	//cells[i].setAttribute("style", "display:none");
 	cells[i].setAttribute("class", "unmatched");
-	cells[i].innerHTML = animals[i];
+	cells[i].innerHTML = shuffleAnimals[i];
 
 }
 
@@ -29,7 +55,6 @@ for(var i =0 ; i < elements.length ; i++) {
 
 	elements[i].addEventListener("click", function(){
 		
-		// var element1, element2;
 		var divShowing = this.querySelector("div");
 
 		if(divShowing.className === "unmatched" && !stillInSecondClick){
@@ -43,19 +68,19 @@ for(var i =0 ; i < elements.length ; i++) {
 				count++;
 			} else {					// second click
 				
-				//console.log("stillInSecondClick = " + stillInSecondClick);
 				itemTwo = divShowing.innerHTML;
 				element2 = divShowing;
 				
 
 				if(itemOne === itemTwo) {
+					// I do nothing here
 				} else {
 					stillInSecondClick = true;
 					setTimeout(function(){
 					element1.setAttribute("class", "unmatched");
 					element2.setAttribute("class", "unmatched");
 					stillInSecondClick = false;
-					},5000);
+					},500);
 				}
 				count = 1;
 			}
