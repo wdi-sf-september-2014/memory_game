@@ -56,16 +56,19 @@ for (var i = 0; i < cardClicked.length; i++) {
       this.setAttribute("class", "show");
       card2 = this.innerHTML;
       element2 = this.getAttribute("id");
-      counter++;
-      console.log(card2, element2, counter);
-    } else if (counter === 2 && card1 === card2) {
+
+      if (card1 === card2) {
       document.getElementById(element1).setAttribute("class", "show");
       document.getElementById(element2).setAttribute("class", "show");
       counter = 0;
-    } else { 
+      } else { 
       counter = 0;
-      document.getElementById(element1).setAttribute("class", "hide");
-      document.getElementById(element2).setAttribute("class", "hide");
+      setTimeout(function (){
+        document.getElementById(element1).setAttribute("class", "hide");
+        document.getElementById(element2).setAttribute("class", "hide");
+      }, 700);
+    }
+      
     }
   });
 }
